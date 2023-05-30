@@ -32,8 +32,8 @@ jobs:
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          API_BASE_URL: ${{vars.API_BASE_URL}}
-          ENVIRONMENT_NAME: ${{vars.ENVIRONMENT_NAME}}
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+          ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
