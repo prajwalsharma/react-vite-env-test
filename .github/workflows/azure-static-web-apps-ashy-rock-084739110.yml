@@ -13,6 +13,7 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    environment: QA
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
@@ -32,8 +33,8 @@ jobs:
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          API_BASE_URL: QA123
-          ENVIRONMENT_NAME: QA
+          VITE_API_BASE_URL: ${{ vars.API_BASE_URL }}
+          VITE_ENVIRONMENT_NAME: ${{ vars.ENVIRONMENT_NAME }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
