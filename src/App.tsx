@@ -3,9 +3,10 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <strong>Environment Variable :</strong> {import.meta.env.API_BASE_URL}
+      <strong>Environment Variable :</strong>{" "}
+      {import.meta.env.VITE_API_BASE_URL}
       <br />
-      <strong>Environment :</strong> {import.meta.env.ENVIRONMENT_NAME}
+      <strong>Environment :</strong> {import.meta.env.VITE_ENVIRONMENT_NAME}
     </div>
   );
 }
